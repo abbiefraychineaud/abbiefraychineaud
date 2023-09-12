@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1333" height="804"></canvas>
+</body>
+
+</html>
+<script>
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+    var y = 100
+    var x = 100
+    var yspeed = 8
+    var xspeed = 8
+    var yTwo = 0
+    var xTwo = 300
+    var ytwospeed = 8
+    var xtwospeed = 8
+
+    function drawFrame() {
+        /*ctx.clearRect(0, 0, 800, 800)*/
+        ctx.fillRect(x, y, 25, 25)
+        ctx.fillRect(xTwo, yTwo, 25, 25)
+        y = y + yspeed
+        x = x + xspeed
+        yTwo = yTwo + ytwospeed
+        xTwo = xTwo + xtwospeed
+        if (y >= yTwo){
+            yspeed = yspeed - .3
+        }
+        if (y <= yTwo){
+            yspeed=yspeed + .3
+        }
+        if (x >= xTwo){
+            xspeed = xspeed - .3
+        }
+        if (x <= xTwo){
+            xspeed = xspeed + .3
+        }
+
+        if (yTwo >= y){
+            ytwospeed = ytwospeed - .3
+        }
+        if (yTwo <= y){
+            ytwospeed=ytwospeed + .3
+        }
+        if (xTwo >= x){
+            xtwospeed = xtwospeed - .3
+        }
+        if (xTwo <= x){
+            xtwospeed = xtwospeed + .3
+        }
+    }
+    setInterval(drawFrame, 16)
+</script>
